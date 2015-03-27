@@ -4,23 +4,18 @@ namespace MSHIMA001{
 class HuffmanNode
 {
 private: // private members
-   int width, height; // width and height of image stack
-   std::vector<unsigned char**> slices; // data for each slice, in order
+   char letter;
+   int freq; // width and height of image stack
+    std::shared_ptr<HuffmanNode> left;
+    std::shared_ptr<HuffmanNode> right; // data for each slice, in order
 public: // public members
-   VolImage(); // default constructor - define in .cpp
-   ~VolImage(); // destructor - define in .cpp file
-// populate the object with images in stack and
-//set member variables define in .cpp
-   bool readImages(std::string baseName);
-// compute difference map and write out; define in .cpp
-   void diffmap(int sliceI, int sliceJ, std::string output_prefix);
-// extract slice sliceId and write to output - define in .cpp
-   void extract(int sliceId, std::string output_prefix);
-// number of bytes uses to store image data bytes
-//and pointers (ignore vector<> container, dims etc)
-   int volImageSize(void); // define in .cpp
-   int volNum(void);
-   void extractRow(int rowId, std::string output_prefix);
+   HuffmanNode(); // default constructor - define in .cpp
+   ~HuffmanNode(); // destructor - define in .cpp file
+   //dont call delete at all in the HuffmanNode destructor.
+   /* a default constructor, a move constructor, a copy
+constructor, a destructor, an assignment operator and a move assignment operator
+more details are provided below.*/
+   
 };
 }
 #endif

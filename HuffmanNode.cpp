@@ -5,27 +5,18 @@
 #include <iostream>
 #include <ios>
 #include <cmath>
-#include "VolImage.h"
+#include "HuffmanNode.h"
 
 using namespace std;
 
  
-MSHIMA001::VolImage::HuffmanNode(){
-   width = 0; height = 0;
+MSHIMA001::HuffmanNode::HuffmanNode(){
+   letter = '';
+   freq = 0;
  
 } 
-MSHIMA001::VolImage::~VolImage(){
-   for(int l = 0; l< slices.size(); l++){
-      for(int m = 0; m< height; m++){
-         for(int n = 0; n< width; n++){
-            delete  &(slices[l][m][n]);
-         }
-         delete slices[l][m];
-      }
-      //delete slices[l];
-      
-      
-   }
+MSHIMA001::HuffmanNode::~HuffmanNode(){
+   
 } 
 bool MSHIMA001::VolImage::readImages(std::string baseName){
    int  number;
