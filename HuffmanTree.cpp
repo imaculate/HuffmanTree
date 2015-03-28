@@ -6,7 +6,7 @@ using namespace std;
 
  
 MSHIMA001::HuffmanTree::HuffmanTree(){
-   letter = '';
-   freq = 0;
+   
+   
  
 }

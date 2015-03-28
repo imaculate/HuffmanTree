@@ -1,5 +1,5 @@
-#ifndef HUFFNMANODE
-#define HUFFNMANODE
+#ifndef HUFFNMANODE_H
+#define HUFFNMANODE_H
 namespace MSHIMA001{
 class HuffmanNode
 {
@@ -10,11 +10,21 @@ private: // private members
     std::shared_ptr<HuffmanNode> right; // data for each slice, in order
 public: // public members
    HuffmanNode(); // default constructor - define in .cpp
+   HuffmanNode(char c, int f);
    ~HuffmanNode(); // destructor - define in .cpp file
-   //dont call delete at all in the HuffmanNode destructor.
-   /* a default constructor, a move constructor, a copy
-constructor, a destructor, an assignment operator and a move assignment operator
-more details are provided below.*/
+  
+   //copy constructor
+   HuffmanNode(const HuffmanNode& N);
+   
+   //move constructor
+   HuffmanNode(HuffmanNode&& N); 
+   
+   //assignment operator
+   
+   HuffmanNode& operator=(const HuffmanNode& N );
+   //move assignment operator.
+   HuffmanNode& operator=(HuffmanNode&& N); 
+   
    
 };
 }
