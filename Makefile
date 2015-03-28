@@ -1,0 +1,1 @@
+g++ -std=c++11 -o HuffmanNode.o -c HuffmanNode.cpp

@@ -4,12 +4,12 @@
 #include <sstream>
 #include <iostream>
 #include "HuffmanNode.h"
-
+#include <memory>
 using namespace std;
 
 //default constructor
 MSHIMA001::HuffmanNode::HuffmanNode(){
-   letter = '';
+  
    freq = 0;
   
  
@@ -33,13 +33,13 @@ MSHIMA001::HuffmanNode::HuffmanNode(HuffmanNode&& N): letter(N.letter), freq(N.f
       
    N.left= N.right = nullptr;
    N.freq = 0;
-   N.letter='';
+   
       
 }
    
    //assignment operator
    
-MSHIMA001::HuffmanNode::HuffmanNode& operator=(const HuffmanNode& N ){
+/*HuffmanNode& MSHIMA001::HuffmanNode::operator=(const HuffmanNode& N ){
    if(this == N)
       return *this;
       
@@ -48,11 +48,12 @@ MSHIMA001::HuffmanNode::HuffmanNode& operator=(const HuffmanNode& N ){
    freq  = N.freq;
    left = N.left;
    right = N.right;
-   
+   return *this;
+
       
 }
    //move assignment operator.
-MSHIMA001::HuffmanNode::HuffmanNode& operator=(HuffmanNode&& N){
+HuffmanNode& MSHIMA001::HuffmanNode::operator=(HuffmanNode&& N){
    if(this == N)
       return *this;
       
@@ -63,23 +64,23 @@ MSHIMA001::HuffmanNode::HuffmanNode& operator=(HuffmanNode&& N){
    right = N.right;
       
    N.left = N.right = nullptr;
-   N.letter = '';
+
    N.freq = 0;
       
    return *this;
       
-} 
-MSHIMA001::HuffmanNode::bool  operator<(HuffmanNode&& N){
-   return freq<N.freq;
+}*/ 
+bool MSHIMA001::HuffmanNode::  operator<(HuffmanNode&& N){
+   return (freq<N.freq);
 }
    
-MSHIMA001::HuffmanNode::void setFrequency(){
-   freq = left.getFrequency() + right.getFrequency();
+void MSHIMA001::HuffmanNode::setFrequency(){
+   freq = left->freq + right->freq;
 }
    
-MSHIMA001::HuffmanNode::int getFrequency(){
+int MSHIMA001::HuffmanNode::getFrequency(){
    return freq;
-}
+} 
    
    
 

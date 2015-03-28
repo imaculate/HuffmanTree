@@ -10,7 +10,7 @@
 
 
 using namespace std;
-
+using namespace MSHIMA001;
 int main(int argc, char** argv) {
    if(argc <3){
       cout<<"You should have at least 2 parameters, enter the name of of headerfile"<<endl;
@@ -37,7 +37,7 @@ int main(int argc, char** argv) {
                Map[my_character] = Map[my_character]+1;
             }
             else{
-               Map.[my_character] = 1;
+               Map[my_character] = 1;
             }
          }
          else{
@@ -118,7 +118,7 @@ bool compare(const HuffmanNode& a, const HuffmanNode& b)
       }
       
       void getCodes(HuffmanNode A, string prefix, unordered_map<string>& map){
-         if(A.letter!=''){
+         if(A.letter!=' '){
             map[A.letter] = prefix;
          }else{
             
