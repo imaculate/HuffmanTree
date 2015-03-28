@@ -6,9 +6,10 @@ class HuffmanNode
 private: // private members
    char letter;
    int freq; // width and height of image stack
-    std::shared_ptr<HuffmanNode> left;
-    std::shared_ptr<HuffmanNode> right; // data for each slice, in order
+   // data for each slice, in order
 public: // public members
+   std::shared_ptr<HuffmanNode> left;
+   std::shared_ptr<HuffmanNode> right;
    HuffmanNode(); // default constructor - define in .cpp
    HuffmanNode(char c, int f);
    ~HuffmanNode(); // destructor - define in .cpp file

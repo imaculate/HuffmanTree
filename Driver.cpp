@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
          
    
       char my_character ;
-   
+      string input;
    
       while (!infile.eof() ) {
       
@@ -33,6 +33,7 @@ int main(int argc, char** argv) {
          cout << my_character;
          if (my_character != '\n'){ 
             if(Map.count(my_character)>0){
+               input+=my_character;
                Map[my_character] = Map[my_character]+1;
             }
             else{
@@ -85,6 +86,27 @@ int main(int argc, char** argv) {
    
    //output table to outputfile.hdr;
    
+   ofstream header(argv[2], ios::out);
+   header<<map.size()<<"\n";
+   for( auto i = map.begin(); i != map.end(); ++i){
+      header<<i->first<<" "<<i->second<<"\n";
+   }
+   
+   header.close()
+   
+   string output = "";
+   
+   for( int i =0; i< input.size(); i++){
+      output+= map[input.at(i)];
+      
+   }  
+   ofstream outfile( argv[2], ios::binary);
+  
+  outfile.write(output.c_str(), output.size());
+  outfile.close();
+
+
+    
 }
 
 bool compare(const HuffmanNode& a, const HuffmanNode& b)
@@ -104,4 +126,5 @@ bool compare(const HuffmanNode& a, const HuffmanNode& b)
             getCodes(B.right, prefix+"1", map);
             
          }
+         
       }
