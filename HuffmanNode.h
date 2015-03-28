@@ -25,6 +25,10 @@ public: // public members
    //move assignment operator.
    HuffmanNode& operator=(HuffmanNode&& N); 
    
+   void setFrequency();
+   
+   int getFrequency();
+   
    
 };
 }
