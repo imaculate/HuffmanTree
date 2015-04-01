@@ -141,6 +141,34 @@ int main(int argc, char** argv) {
   
    outfile.write(output.c_str(), output.size());
    outfile.close();
+   
+   
+   int  N = output.size();
+   int nbytes = (N/8) + (N%8 ? 1 : 0); 
+   //create bitstream
+   
+
+
+   unsigned char bitstream[nbytes];
+
+   unsigned char ch;
+   for (int i=0; i< nbytes; i++){
+      string ch = output.substr(i*8, (i+1)*8);
+      bitstream[i] = ch & 0xff;
+      
+   }
+      
+      
+   //store bitstream to binary file
+   string binaryfile = string(argv[2]) + ".bin" ;
+
+  std::ofstream file(binaryfile, std::ios::binary);
+  file.write(bitstream, nbytes);
+  
+  
+  //create a method to extract file. 
+  
+  
 
 
     
