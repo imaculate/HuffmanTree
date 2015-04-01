@@ -9,7 +9,7 @@ using namespace std;
 using namespace MSHIMA001;
 //default constructor
 MSHIMA001::HuffmanNode::HuffmanNode(){
-  
+  	letter = '\0';
    freq = 0;
   
  
@@ -74,6 +74,7 @@ bool MSHIMA001::HuffmanNode::operator<(const HuffmanNode& N) const{
 }
    
 void MSHIMA001::HuffmanNode::setFrequency(){
+	
    freq = (*left).getFrequency() + (*right).getFrequency();
 }
    

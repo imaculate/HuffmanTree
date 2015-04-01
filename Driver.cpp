@@ -22,14 +22,14 @@ bool compare(const HuffmanNode& a, const HuffmanNode& b)
 }
 
 void getCodes(const HuffmanNode& A, string prefix, unordered_map<char,string>& map){
-   if(A.getLetter()!=' '){
+   if(A.getLetter()!='\0'){
       map[A.getLetter()] = prefix;
    }
    else{
    
             
-      getCodes(*(A.left), prefix+"0", map);
-      getCodes(*(A.right), prefix+"1", map);
+      getCodes(*(A.left), "0"+prefix, map);
+      getCodes(*(A.right), "1"+prefix, map);
             
    }
          
@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
       cout<<"You should have at least 2 parameters, enter the name of of headerfile"<<endl;
       return 0;
    }
-   cout<<"I reached this point!"<<endl;
+  
    unordered_map<char, int> Map;
    string input= "";
    ifstream infile( argv[1], ios::in);
@@ -53,21 +53,18 @@ int main(int argc, char** argv) {
       while (!infile.eof() ) {
       
          infile.get(my_character);
-         cout << my_character;
-         if (my_character != '\n'){ 
+      
+      
             if(Map.count(my_character)>0){
                input+=my_character;
                Map[my_character]+=1;
-            }
-            else{
+            }else{
                Map[my_character] = 1;
             }
          }
-         else{
-            continue;
-         }  
+          
       
-      }      
+           
       infile.close();
    }
    else{
@@ -116,8 +113,10 @@ int main(int argc, char** argv) {
    //output table to outputfile.hdr;
    
    ofstream header(argv[2], ios::out);
+	cout<<map.size()<<endl;
    header<<map.size()<<"\n";
    for( auto i = map.begin(); i != map.end(); ++i){
+		cout<<(i->first)<<" "<<(i->second)<<endl;
       header<<(i->first)<<" "<<(i->second)<<"\n";
    }
    
