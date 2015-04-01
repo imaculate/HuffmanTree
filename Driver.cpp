@@ -53,14 +53,19 @@ int main(int argc, char** argv) {
       while (!infile.eof() ) {
       
          infile.get(my_character);
-      
+      		if(my_character!='\n'){
       
             if(Map.count(my_character)>0){
-               input+=my_character;
+              
                Map[my_character]+=1;
             }else{
+		
                Map[my_character] = 1;
             }
+			 input+=my_character;
+			}else{
+				continue;
+			}
          }
           
       
@@ -73,9 +78,11 @@ int main(int argc, char** argv) {
    
    cout<<"I reached this point!"<<endl;
    priority_queue<HuffmanNode, vector<HuffmanNode>,fptr> pq(compare);
-   
+   cout<<Map.size()<<endl;
    for(  auto it = Map.begin(); it != Map.end(); ++it){
+		cout<<(it->first)<<" "<<(it->second)<<endl;
       HuffmanNode node(it->first,it->second);
+		
       pq.push(node);
    }
  
@@ -98,7 +105,7 @@ int main(int argc, char** argv) {
       
       
    } 
-   
+   cout<<"pq size is"<<pq.size()<<endl;
    
   //priority queue now only has the root node.
   
@@ -111,8 +118,9 @@ int main(int argc, char** argv) {
    getCodes(T, "",map );
    
    //output table to outputfile.hdr;
-   
-   ofstream header(argv[2], ios::out);
+   string headerfile = string(argv[2]) + ".hdr" ;
+	//cout<<"header "<<headerfile<<endl;
+   ofstream header(headerfile, ios::out);
 	cout<<map.size()<<endl;
    header<<map.size()<<"\n";
    for( auto i = map.begin(); i != map.end(); ++i){
@@ -123,12 +131,13 @@ int main(int argc, char** argv) {
    header.close();
       
       string output = "";
-   
+   cout<<input<<endl;
    for( int i =0; i< input.size(); i++){
       output+= map[input.at(i)];
       
    }  
-   ofstream outfile( argv[2], ios::binary);
+	string opfile = string(argv[2]) + ".txt" ;
+   ofstream outfile( opfile, ios::binary);
   
    outfile.write(output.c_str(), output.size());
    outfile.close();

@@ -70,7 +70,7 @@ HuffmanNode& MSHIMA001::HuffmanNode::operator=(HuffmanNode&& N){
       
 }
 bool MSHIMA001::HuffmanNode::operator<(const HuffmanNode& N) const{
-   return (freq<N.freq);
+   return (N.getFrequency()<freq);
 }
    
 void MSHIMA001::HuffmanNode::setFrequency(){
