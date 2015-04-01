@@ -25,16 +25,18 @@ public: // public members
    
    //assignment operator
    
-   HuffmanNode& operator=(const HuffmanNode& N );
+  HuffmanNode& operator=(const HuffmanNode& N );
    //move assignment operator.
-   HuffmanNode& operator=(HuffmanNode&& N); 
+   HuffmanNode& operator=(HuffmanNode&& N);
    
    //less that operator
-   bool operator<(HuffmanNode&& N); 
+   bool operator<(const HuffmanNode& N) const; 
    
-   void setFrequency();
+   void setFrequency() ;
    
-   int getFrequency();
+   int getFrequency() const;
+   
+   char getLetter() const;
    
    
 };
