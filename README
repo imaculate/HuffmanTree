@@ -1,29 +1,29 @@
 Author: Imaculate Mosha
 
-Date: 14th March 2015
-Name: A Volumetric Image Manipulation Tool using raw pointers
+Date: 6th April 2015
+Name: A huffman encoding algorithm. 
 
 
 Description: 
-This assignment is written to in responce to answer assignment 2 question to create a volumetric image manipulation tool using raw pointers.  
-It stores binary data into a dynamically allocated 3D array and can perform operations described below. 
+This assignment is written to in responce to answer assignment 3 question to create a huffman encoding compression algorithm.   
+It reads a file and creates a huffman tree used to compress the file. It then produces an output file from the 
+huffman table. The compressed file is saved as a bitstream in <out>.bin file.It also provides a method to
+extract the encoded string from the binary file.  
 
-Instructions: Extract the tar file. Navigate to the destination folder from the command line. Enter make
-Use the following  commands to run the different options.
+Instructions: Extract the tar file. Navigate to the destination folder from the command line. 
+Enter make
 
-   volimage <imageBase> //print number of images and number of bytes used
-   volimage <imagebase> -g i output_file_name //extract the ith row of all slices to output_file_name with corresponding header.
-   volimage <imageBase> -x i output file name //extract the ith slice to output_file_name with corresponding header.
-   volimage <imageBase> -d i j output_file_name //create a raw output file with the difference between slice i and j.
- 
+Run( huffencode <inputfile> <outputfile> )
  
 	 
 
 List of files: 
 
-VolImage.h -header file for VolImage class.
-VolImage.cpp -defines VolImage class methods .
-driver.cpp -driver file for the program
+HuffmanTree.h -header file for HuffmanTree class.
+HuffmanTree.cpp -defines HuffmanTree class methods .
+HuffmanNode.h - header file for HuffmanNode class.
+HuffmanNode.cpp - defines HuffmanNode class methods.
+Driver.cpp -driver file for the program
 Makefile - used to run the program.
 
 
