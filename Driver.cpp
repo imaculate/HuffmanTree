@@ -160,19 +160,19 @@ int main(int argc, char** argv) {
 
    ofstream file(binaryfile, ios::binary);
    file.write((char*)bitstream, nbytes);
-  file.close();
+   file.close();
    delete [] bitstream;
    //extract
   
-    unsigned char* bits = new unsigned char[nbytes];
+   unsigned char* bits = new unsigned char[nbytes];
    
    ifstream bin(binaryfile, ios::binary);
    
-    string comp;
-    bin.read((char*)bits, nbytes);
-    int size = output.size(); 
-    int fill;
-     for (int i=0; i< nbytes; i++){
+   string comp;
+   bin.read((char*)bits, nbytes);
+   int size = output.size(); 
+   int fill;
+   for (int i=0; i< nbytes; i++){
       fill = (size>8)?8:size;
       comp += toString(bits[i],fill);
       cout<<comp<<endl;

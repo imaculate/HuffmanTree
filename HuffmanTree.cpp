@@ -1,7 +1,7 @@
 #include "HuffmanNode.h"
 #include "HuffmanTree.h"
 
-#include <iostream>
+
 
 
 using namespace std;
@@ -26,7 +26,7 @@ void MSHIMA001::HuffmanTree::buildTree(unordered_map<char, int>& Map){
    priority_queue<HuffmanNode, vector<HuffmanNode>,fptr> pq(compare);
    
    for(  auto it = Map.begin(); it != Map.end(); ++it){
-		cout<<(it->first)<<" "<<(it->second)<<endl;
+		
       HuffmanNode node(it->first,it->second);
 		
       pq.push(node);

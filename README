@@ -14,6 +14,8 @@ Instructions: Extract the tar file. Navigate to the destination folder from the 
 Enter make
 
 Run( huffencode <inputfile> <outputfile> )
+
+For unit testing run (test)
  
 	 
 
@@ -25,5 +27,5 @@ HuffmanNode.h - header file for HuffmanNode class.
 HuffmanNode.cpp - defines HuffmanNode class methods.
 Driver.cpp -driver file for the program
 Makefile - used to run the program.
-
+trial.txt - used for unit testing.
 
