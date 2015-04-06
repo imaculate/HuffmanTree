@@ -15,12 +15,5 @@ HuffmanTree.o : HuffmanTree.cpp HuffmanTree.h
 Driver.o : Driver.cpp
 	$(CC) $(CCFLAGS) -o Driver.o -c Driver.cpp
   
-
-   
-
-
-
-   
       
-clean:
-	rm -f *.o
+
