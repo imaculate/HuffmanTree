@@ -14,8 +14,11 @@ Instructions: Extract the tar file. Navigate to the destination folder from the 
 Enter make
 
 Run( huffencode <inputfile> <outputfile> )
+eg huffencode trial out
 
-For unit testing run (test)
+For unit testing :
+compile with (make test)
+run test.
  
 	 
 

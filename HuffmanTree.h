@@ -1,5 +1,6 @@
 #ifndef HUFFNMANTREE_H
 #define HUFFNMANTREE_H
+#include "HuffmanNode.h"
 #include <memory>
 #include <queue>
 #include <unordered_map>
