@@ -6,34 +6,14 @@
 #include <iostream>
 #include <functional>
 #include "HuffmanNode.h"
+#include "HuffmanTree.h"
 
 
 
 using namespace std;
 using namespace MSHIMA001;
-typedef bool(*fptr)(const HuffmanNode&,const HuffmanNode&);
 
-bool compare(const HuffmanNode& a, const HuffmanNode& b)
-{
-   if(a < b) 
-      return true; // or > if the algorithm requires that ordering
-   else 
-      return false;
-}
 
-void getCodes(const HuffmanNode& A, string prefix, unordered_map<char,string>& map){
-   if(A.getLetter()!='\0'){
-      map[A.getLetter()] = prefix;
-   }
-   else{
-   
-            
-      getCodes(*(A.left), "0"+prefix, map);
-      getCodes(*(A.right), "1"+prefix, map);
-            
-   }
-         
-}
 int main(int argc, char** argv) {
    if(argc <3){
       cout<<"You should have at least 2 parameters, enter the name of of headerfile"<<endl;
@@ -76,46 +56,23 @@ int main(int argc, char** argv) {
       cout<<"Could not open input file "<< argv[1]<<" provided"<<endl;
    }
    
-   cout<<"I reached this point!"<<endl;
-   priority_queue<HuffmanNode, vector<HuffmanNode>,fptr> pq(compare);
-   cout<<Map.size()<<endl;
-   for(  auto it = Map.begin(); it != Map.end(); ++it){
-		cout<<(it->first)<<" "<<(it->second)<<endl;
-      HuffmanNode node(it->first,it->second);
-		
-      pq.push(node);
-   }
- 
-
   
    
-   while(pq.size()>1){
-      //build the huffman tree.
-      HuffmanNode comb;
-      comb.left = make_shared<HuffmanNode>(pq.top());
-       pq.pop();
-      comb.right = make_shared<HuffmanNode>(pq.top());
-       pq.pop();
-    
-      
-      comb.setFrequency();
-      pq.push(comb);
-      
-      
-      
-      
-   } 
-   cout<<"pq size is"<<pq.size()<<endl;
+  
    
   //priority queue now only has the root node.
   
    //create map for th character to codes.
+   HuffmanTree tree;
+   tree.buildTree(Map);
      
    unordered_map<char, string> map;
    
-   const HuffmanNode& T = pq.top();
+  
    
-   getCodes(T, "",map );
+   const HuffmanNode& T = *(tree.root);
+   
+   tree.getCodes(T, "",map );
    
    //output table to outputfile.hdr;
    string headerfile = string(argv[2]) + ".hdr" ;
@@ -145,7 +102,7 @@ int main(int argc, char** argv) {
    
    int  N = output.size();
    int nbytes = (N/8) + (N%8 ? 1 : 0); 
-   //create bitstream
+   /*create bitstream
    
 
 
@@ -166,7 +123,7 @@ int main(int argc, char** argv) {
   file.write(bitstream, nbytes);
   
   
-  //create a method to extract file. 
+  //create a method to extract file. */
   
   
 
