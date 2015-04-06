@@ -14,7 +14,7 @@ Instructions: Extract the tar file. Navigate to the destination folder from the 
 Enter make
 
 Run( huffencode <inputfile> <outputfile> )
-eg huffencode trial out
+eg( huffencode test1 test1out)
 
 For unit testing :
 compile with (make test)
@@ -30,5 +30,12 @@ HuffmanNode.h - header file for HuffmanNode class.
 HuffmanNode.cpp - defines HuffmanNode class methods.
 Driver.cpp -driver file for the program
 Makefile - used to run the program.
-trial.txt - used for unit testing.
+test1.txt test2.txt - used for unit testing
 
+
+Output format.
+
+<out>.hdr -header containing frequency table
+<out>.data - header containing number of bytes in bitstream
+<out>.bin - binary file containing bitstream
+<out>.txt - ascii file containing encoded string in plain text. 
